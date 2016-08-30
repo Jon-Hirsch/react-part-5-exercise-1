@@ -19,7 +19,7 @@ describe('App', function () {
     selects = scryWithTag(component, 'select');
   });
 
-  it('it should contain two select elements', function () {
+  it('should contain two select elements', function () {
     expect(selects.length).to.equal(2);
   });
 

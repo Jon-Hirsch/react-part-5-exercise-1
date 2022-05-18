@@ -1,27 +1,26 @@
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: __dirname+"/dist",
-    filename: "bundle.js"
+    path: __dirname + "/dist",
+    filename: "bundle.js",
   },
   devServer: {
-    inline: true,
-    contentBase: __dirname+"/dist"
+    static: __dirname + "/dist",
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: "babel-loader",
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react']
-        }
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"],
+        },
       },
       {
         test: /\.css$/,
-        loaders: ["style", "css"]
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
-}
+};
